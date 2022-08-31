@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="jumbotron text-center">
+    <h3>Teknoloji Maymunu Bloguna Hoşgeldiniz</h3>
+    <p>Bu blogda teknoloji ile ilgili bilgiler öğrenebilir, bilgilerinizi paylaşabilirsiniz.</p>
+</div>
+
+<ul>
+    {% for article in articles %}
+        <li>Article ID: {{article.id}} - Title: {{article.title}} - Content: {{article.content}}</li>
+    {% endfor %}
+    
+</ul>
+
+
+{% endblock %}

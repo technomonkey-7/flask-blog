@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% if article %}
+
+<h4>{{article.title}}</h4>
+<hr>
+Yazar : {{article.author}}
+<hr>
+Tarih : {{article.created_date}}
+<hr>
+{{article.content|safe}}
+<hr>
+    {% if session["logged_in"] and session["username"] == article.author %}
+        <div>
+            <a href="/edit/{{article.id}}" class="btn btn-warning">Güncelle</a>
+            <div style="display: inline-block;"></div>
+            <a href="/delete/{{article.id}}" class="btn btn-danger">Sil</a>
+        </div>
+    {% endif %}
+
+{% else %}
+<div class="alert alert-warning">
+    Bu Makale Bulunamadı!
+</div>
+{% endif %}
+
+{% endblock %}
